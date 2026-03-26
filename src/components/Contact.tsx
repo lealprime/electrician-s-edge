@@ -1,15 +1,27 @@
-import { useState, FormEvent } from "react";
+import { useRef, useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, Instagram, Facebook, Clock, CheckCircle } from "lucide-react";
 
+const UnderlineLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
+  <a
+    href={href}
+    className={`relative inline-block text-muted-foreground hover:text-primary transition-colors after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${className}`}
+  >
+    {children}
+  </a>
+);
+
 const Contact = () => {
   const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.checkValidity()) return;
     setSent(true);
+    form.reset();
+    setTimeout(() => setSent(false), 5000);
   };
 
   return (
@@ -34,51 +46,51 @@ const Contact = () => {
           >
             <h3 className="font-display text-xl font-bold mb-6">Agende seu Serviço</h3>
 
-            {sent ? (
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20">
-                <CheckCircle className="text-primary shrink-0 mt-0.5" size={20} />
-                <p className="text-sm">
-                  <strong>Ótimo!</strong> Seu agendamento foi enviado. Em breve entraremos em contato.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  required
-                  type="text"
-                  placeholder="Nome completo"
-                  className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <input
-                  required
-                  type="tel"
-                  placeholder="Telefone"
-                  className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <input
-                  type="text"
-                  placeholder="CEP"
-                  className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="Descrição do problema"
-                  className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                />
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-bold hover:brightness-110 transition"
-                >
-                  Enviar Agendamento
-                </button>
-              </form>
-            )}
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              <input
+                required
+                type="text"
+                placeholder="Nome completo"
+                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              <input
+                required
+                type="tel"
+                placeholder="Telefone"
+                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              <input
+                type="email"
+                placeholder="E-mail"
+                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              <input
+                type="text"
+                placeholder="CEP"
+                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+              <textarea
+                required
+                rows={4}
+                placeholder="Descrição do problema"
+                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+              />
+              <button
+                type="submit"
+                className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-bold hover:brightness-110 transition"
+              >
+                Enviar Agendamento
+              </button>
+
+              {sent && (
+                <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20 animate-fade-in">
+                  <CheckCircle className="text-primary shrink-0 mt-0.5" size={20} />
+                  <p className="text-sm">
+                    <strong>Ótimo!</strong> Seu agendamento foi enviado. Em breve entraremos em contato.
+                  </p>
+                </div>
+              )}
+            </form>
           </motion.div>
 
           {/* Info */}
@@ -103,18 +115,22 @@ const Contact = () => {
             <div className="p-8 rounded-xl bg-card border border-border">
               <h3 className="font-display text-xl font-bold mb-4">Contato Direto</h3>
               <div className="space-y-3 text-sm">
-                <a href="tel:+5511999999999" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Phone size={18} className="text-primary" /> (11) 99999-9999
-                </a>
-                <a href="mailto:contato@carloseletrica.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Mail size={18} className="text-primary" /> contato@carloseletrica.com
-                </a>
-                <a href="#" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Instagram size={18} className="text-primary" /> @carloseletrica
-                </a>
-                <a href="#" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Facebook size={18} className="text-primary" /> /carloseletrica
-                </a>
+                <div className="flex items-center gap-3">
+                  <Phone size={18} className="text-primary shrink-0" />
+                  <UnderlineLink href="tel:+5511999999999">(11) 99999-9999</UnderlineLink>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail size={18} className="text-primary shrink-0" />
+                  <UnderlineLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</UnderlineLink>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Instagram size={18} className="text-primary shrink-0" />
+                  <UnderlineLink href="#">@carloseletrica</UnderlineLink>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Facebook size={18} className="text-primary shrink-0" />
+                  <UnderlineLink href="#">/carloseletrica</UnderlineLink>
+                </div>
               </div>
             </div>
           </motion.div>

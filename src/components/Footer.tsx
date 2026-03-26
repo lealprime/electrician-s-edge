@@ -1,5 +1,14 @@
 import { Zap, Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
 
+const UnderlineLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
+  <a
+    href={href}
+    className={`relative inline-block text-sm text-muted-foreground hover:text-primary transition-colors after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${className}`}
+  >
+    {children}
+  </a>
+);
+
 const Footer = () => (
   <footer className="border-t border-border bg-secondary py-16">
     <div className="container">
@@ -31,7 +40,7 @@ const Footer = () => (
               { label: "Contato", href: "#agendamento" },
             ].map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a>
+                <UnderlineLink href={l.href}>{l.label}</UnderlineLink>
               </li>
             ))}
           </ul>
@@ -43,7 +52,7 @@ const Footer = () => (
           <ul className="space-y-3">
             {["Instalação Elétrica", "Manutenção Preventiva", "Iluminação e Tomadas"].map((s) => (
               <li key={s}>
-                <a href="#servicos" className="text-sm text-muted-foreground hover:text-primary transition-colors">{s}</a>
+                <UnderlineLink href="#servicos">{s}</UnderlineLink>
               </li>
             ))}
           </ul>
@@ -59,11 +68,11 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-primary shrink-0" />
-              (11) 99999-9999
+              <UnderlineLink href="tel:+5511999999999">(11) 99999-9999</UnderlineLink>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-primary shrink-0" />
-              contato@carloseletrica.com
+              <UnderlineLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</UnderlineLink>
             </li>
           </ul>
         </div>
