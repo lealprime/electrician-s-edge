@@ -39,7 +39,7 @@ const Reviews = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="p-6 rounded-xl bg-card border border-border"
+            className="group relative p-6 rounded-xl bg-card border border-border transition-all duration-300 hover:border-primary hover:shadow-[0_4px_0_0_hsl(var(--primary))] hover:-translate-y-1"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-display font-bold text-primary">
