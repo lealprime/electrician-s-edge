@@ -18,15 +18,15 @@ const Areas = () => (
         Áreas de <span className="text-primary">Atendimento</span>
       </motion.h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {areas.map((a, i) => (
           <motion.div
             key={a}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            className="flex items-center gap-2 p-4 rounded-lg bg-card border border-border"
+            transition={{ delay: i * 0.06, duration: 0.4 }}
+            className="group flex items-center gap-3 px-5 py-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all hover:glow-primary cursor-default"
           >
             <MapPin className="text-primary shrink-0" size={18} />
             <span className="text-sm font-medium">{a}</span>
