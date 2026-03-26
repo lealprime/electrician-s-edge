@@ -1,30 +1,32 @@
 import { motion } from "framer-motion";
-import { Zap, Wrench, Star, ClipboardCheck } from "lucide-react";
 
 const stats = [
-  { icon: Zap, value: "10+", label: "Anos de Experiência" },
-  { icon: Wrench, value: "+500", label: "Serviços Realizados" },
-  { icon: Star, value: "4.9", label: "Avaliação Média" },
-  { icon: ClipboardCheck, value: "NR-10", label: "Profissional Certificado" },
+  { value: "10+", label: "Anos de Experiência" },
+  { value: "+500", label: "Serviços Realizados" },
+  { value: "98%", label: "Clientes Satisfeitos" },
+  { value: "NR-10", label: "Profissional Certificado" },
 ];
 
 const Stats = () => (
-  <section className="py-20 bg-secondary">
-    <div className="container grid grid-cols-2 md:grid-cols-4 gap-6">
-      {stats.map((s, i) => (
-        <motion.div
-          key={s.label}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.1, duration: 0.5 }}
-          className="flex flex-col items-center text-center p-6 rounded-xl bg-card border border-border"
-        >
-          <s.icon className="text-primary mb-3" size={32} />
-          <span className="font-display text-3xl font-bold">{s.value}</span>
-          <span className="text-sm text-muted-foreground mt-1">{s.label}</span>
-        </motion.div>
-      ))}
+  <section className="relative py-16 bg-[hsl(210,60%,22%)] overflow-hidden">
+    {/* Subtle diagonal texture */}
+    <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmUgeDE9IjAiIHkxPSI0MCIgeDI9IjQwIiB5Mj0iMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')]" />
+    <div className="container relative">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+            className="text-center py-6"
+          >
+            <span className="block font-display text-4xl md:text-5xl font-bold text-primary">{s.value}</span>
+            <span className="block text-xs md:text-sm uppercase tracking-widest text-white/70 mt-2">{s.label}</span>
+          </motion.div>
+        ))}
+      </div>
     </div>
   </section>
 );

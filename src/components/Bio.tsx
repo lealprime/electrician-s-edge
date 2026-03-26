@@ -13,47 +13,49 @@ const Bio = () => (
         Sobre o <span className="text-primary">Profissional</span>
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Text left */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="rounded-xl overflow-hidden border border-border"
+          className="space-y-5 order-2 md:order-1"
         >
-          <img
-            src={bioPhoto}
-            alt="Carlos Silva - Eletricista Profissional"
-            loading="lazy"
-            width={640}
-            height={800}
-            className="w-full h-auto object-cover"
-          />
+          <p className="text-foreground leading-relaxed">
+            Olá, eu sou o <strong>Carlos Silva</strong> — eletricista licenciado com mais de 10 anos
+            de experiência atendendo toda a região metropolitana de São Paulo. Fundei a Carlos
+            Elétrica com uma missão simples: entregar serviços elétricos honestos e de alta
+            qualidade a preços justos.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            Após me formar em Eletrotécnica pelo SENAI e trabalhar em uma das principais empresas
+            de instalação elétrica de SP, decidi seguir carreira independente para oferecer a
+            cada cliente a atenção personalizada que merece. Cada trabalho recebe meu foco total,
+            de um simples reparo a uma instalação completa.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Quando não estou trabalhando, você me encontra em treinamentos de atualização técnica
+            ou passando tempo com a família. Acredito em fazer certo da primeira vez — e garanto
+            100% de satisfação em cada projeto.
+          </p>
         </motion.div>
 
+        {/* Photo right */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="space-y-5"
+          className="order-1 md:order-2 flex justify-center"
         >
-          <h3 className="font-display text-2xl font-bold">Carlos Silva</h3>
-          <p className="text-muted-foreground leading-relaxed">
-            Com mais de 10 anos de experiência no mercado elétrico, Carlos é formado
-            em Eletrotécnica pelo SENAI e possui certificação NR-10 (Segurança em
-            Instalações e Serviços em Eletricidade). Registrado no CREA-SP, atua em
-            projetos residenciais e comerciais em toda a região metropolitana de São Paulo.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Sua missão é oferecer um serviço elétrico de alta qualidade, com transparência,
-            pontualidade e preço justo. Cada cliente é tratado com atenção personalizada,
-            garantindo soluções seguras e duradouras.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            {["CREA-SP", "NR-10", "SENAI", "10+ Anos"].map((tag) => (
-              <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
-                {tag}
-              </span>
-            ))}
+          <div className="rounded-2xl overflow-hidden shadow-2xl max-w-sm">
+            <img
+              src={bioPhoto}
+              alt="Carlos Silva - Eletricista Profissional"
+              loading="lazy"
+              width={400}
+              height={500}
+              className="w-full h-auto object-cover"
+            />
           </div>
         </motion.div>
       </div>
