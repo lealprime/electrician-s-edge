@@ -1,26 +1,14 @@
-import { motion } from "framer-motion";
 import bioPhoto from "@/assets/bio-photo.jpg";
 
 const Bio = () => (
   <section className="py-24 bg-secondary">
     <div className="container">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="font-display text-3xl md:text-4xl font-bold text-center mb-14"
-      >
+      <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-14">
         Sobre o <span className="text-primary">Profissional</span>
-      </motion.h2>
+      </h2>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Text left */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="space-y-5 order-2 md:order-1"
-        >
+        <div className="space-y-5 order-2 md:order-1">
           <p className="text-foreground leading-relaxed">
             Olá, eu sou o <strong>Carlos Silva</strong> — eletricista licenciado com mais de 10 anos
             de experiência atendendo toda a região metropolitana de São Paulo. Fundei a Carlos
@@ -38,15 +26,9 @@ const Bio = () => (
             ou passando tempo com a família. Acredito em fazer certo da primeira vez — e garanto
             100% de satisfação em cada projeto.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Photo right */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="order-1 md:order-2 flex justify-center"
-        >
+        <div className="order-1 md:order-2 flex justify-center">
           <div className="rounded-2xl overflow-hidden shadow-2xl max-w-sm">
             <img
               src={bioPhoto}
@@ -57,7 +39,7 @@ const Bio = () => (
               className="w-full h-auto object-cover"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   </section>
