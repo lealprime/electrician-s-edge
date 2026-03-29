@@ -16,7 +16,7 @@ const Areas = () => (
         {areas.map((a) => (
           <div
             key={a}
-            className="group flex items-center gap-3 px-5 py-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all hover:glow-primary cursor-default"
+            className="group flex items-center gap-3 px-5 py-4 rounded-lg bg-card border border-border cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20"
           >
             <MapPin className="text-primary shrink-0" size={18} />
             <span className="text-sm font-medium">{a}</span>

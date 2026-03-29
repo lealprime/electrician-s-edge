@@ -43,7 +43,7 @@ const Navbar = () => {
               key={l.label}
               href={l.href}
               onClick={(e) => handleClick(e, l.href)}
-              className="relative text-sm text-muted-foreground hover:text-primary transition-colors after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              className="text-sm text-muted-foreground transition-all duration-200 hover:translate-x-[2px] hover:text-primary"
             >
               {l.label}
             </a>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 handleClick(e, l.href);
                 setOpen(false);
               }}
-              className="block px-6 py-3 text-muted-foreground hover:text-primary transition-colors"
+              className="block px-6 py-3 text-muted-foreground transition-all duration-200 hover:translate-x-[2px] hover:text-primary"
             >
               {l.label}
             </a>

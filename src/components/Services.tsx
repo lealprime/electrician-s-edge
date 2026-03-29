@@ -20,7 +20,7 @@ const Services = () => (
         {services.map((s) => (
           <div
             key={s.title}
-            className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:glow-primary"
+            className="group p-6 rounded-xl bg-card border border-border transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20"
           >
             <s.icon className="text-primary mb-4" size={28} />
             <h3 className="font-display font-semibold text-lg mb-2">{s.title}</h3>
