@@ -54,9 +54,9 @@ const Hero = () => (
             e.preventDefault();
             document.getElementById("agendamento")?.scrollIntoView({ behavior: "smooth", block: "start" });
           }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          initial={{ opacity: 0, scale: 0.8, filter: "blur(6px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="inline-flex items-center gap-2 mt-10 px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-lg rounded-lg hover:brightness-110 transition"
         >
           Agendar Agora

@@ -28,26 +28,47 @@ const UnderlineLink = ({ href, children, className = "" }: { href: string; child
   </a>
 );
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 const Reviews = () => (
   <section id="avaliacoes" className="py-24">
     <div className="container">
       <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: -20, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="font-display text-3xl md:text-4xl font-bold text-center mb-14"
       >
         O que nossos <span className="text-primary">clientes</span> dizem
       </motion.h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {reviews.map((r, i) => (
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        className="grid md:grid-cols-3 gap-6"
+      >
+        {reviews.map((r) => (
           <motion.div
             key={r.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
+            variants={cardVariants}
             className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:glow-primary"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -66,12 +87,13 @@ const Reviews = () => (
             <p className="text-sm text-muted-foreground leading-relaxed">"{r.text}"</p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         className="text-center mt-8"
       >
         <UnderlineLink href="https://g.page/r/carloseletrica/review" className="text-sm">
