@@ -1,9 +1,9 @@
 import { Zap, Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
 
-const UnderlineLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
+const HoverLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
   <a
     href={href}
-    className={`relative inline-block text-sm text-muted-foreground hover:text-primary transition-colors after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${className}`}
+    className={`inline-block text-sm text-muted-foreground transition-all duration-200 hover:translate-x-[2px] hover:text-primary ${className}`}
   >
     {children}
   </a>
@@ -13,7 +13,6 @@ const Footer = () => (
   <footer className="border-t border-border bg-secondary py-16">
     <div className="container">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Logo + description */}
         <div>
           <div className="flex items-center gap-2 font-display font-bold text-lg mb-4">
             <Zap className="text-primary" size={20} />
@@ -29,7 +28,6 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Menu Rápido */}
         <div>
           <h4 className="font-display font-bold text-sm uppercase tracking-wider mb-5">Menu Rápido</h4>
           <ul className="space-y-3">
@@ -39,26 +37,20 @@ const Footer = () => (
               { label: "Avaliações", href: "#avaliacoes" },
               { label: "Contato", href: "#agendamento" },
             ].map((l) => (
-              <li key={l.label}>
-                <UnderlineLink href={l.href}>{l.label}</UnderlineLink>
-              </li>
+              <li key={l.label}><HoverLink href={l.href}>{l.label}</HoverLink></li>
             ))}
           </ul>
         </div>
 
-        {/* Serviços */}
         <div>
           <h4 className="font-display font-bold text-sm uppercase tracking-wider mb-5">Serviços</h4>
           <ul className="space-y-3">
             {["Instalação Elétrica", "Manutenção Preventiva", "Iluminação e Tomadas"].map((s) => (
-              <li key={s}>
-                <UnderlineLink href="#servicos">{s}</UnderlineLink>
-              </li>
+              <li key={s}><HoverLink href="#servicos">{s}</HoverLink></li>
             ))}
           </ul>
         </div>
 
-        {/* Contato */}
         <div>
           <h4 className="font-display font-bold text-sm uppercase tracking-wider mb-5">Contato</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
@@ -68,11 +60,11 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-primary shrink-0" />
-              <UnderlineLink href="tel:+5511999999999">(11) 99999-9999</UnderlineLink>
+              <HoverLink href="tel:+5511999999999">(11) 99999-9999</HoverLink>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-primary shrink-0" />
-              <UnderlineLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</UnderlineLink>
+              <HoverLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</HoverLink>
             </li>
           </ul>
         </div>

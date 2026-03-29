@@ -1,10 +1,10 @@
 import { useRef, useState, FormEvent } from "react";
 import { Phone, Mail, Instagram, Facebook, Clock, CheckCircle } from "lucide-react";
 
-const UnderlineLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
+const HoverLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
   <a
     href={href}
-    className={`relative inline-block text-muted-foreground hover:text-primary transition-colors after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${className}`}
+    className={`inline-block text-muted-foreground transition-all duration-200 hover:translate-x-[2px] hover:text-primary ${className}`}
   >
     {children}
   </a>
@@ -45,7 +45,7 @@ const Contact = () => {
               </button>
 
               {sent && (
-                <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20 animate-fade-in">
+                <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20">
                   <CheckCircle className="text-primary shrink-0 mt-0.5" size={20} />
                   <p className="text-sm">
                     <strong>Ótimo!</strong> Seu agendamento foi enviado. Em breve entraremos em contato.
@@ -72,19 +72,19 @@ const Contact = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-primary shrink-0" />
-                  <UnderlineLink href="tel:+5511999999999">(11) 99999-9999</UnderlineLink>
+                  <HoverLink href="tel:+5511999999999">(11) 99999-9999</HoverLink>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail size={18} className="text-primary shrink-0" />
-                  <UnderlineLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</UnderlineLink>
+                  <HoverLink href="mailto:contato@carloseletrica.com">contato@carloseletrica.com</HoverLink>
                 </div>
                 <div className="flex items-center gap-3">
                   <Instagram size={18} className="text-primary shrink-0" />
-                  <UnderlineLink href="#">@carloseletrica</UnderlineLink>
+                  <HoverLink href="#">@carloseletrica</HoverLink>
                 </div>
                 <div className="flex items-center gap-3">
                   <Facebook size={18} className="text-primary shrink-0" />
-                  <UnderlineLink href="#">/carloseletrica</UnderlineLink>
+                  <HoverLink href="#">/carloseletrica</HoverLink>
                 </div>
               </div>
             </div>
