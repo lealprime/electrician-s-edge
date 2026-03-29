@@ -1,5 +1,4 @@
 import { useRef, useState, FormEvent } from "react";
-import { motion } from "framer-motion";
 import { Phone, Mail, Instagram, Facebook, Clock, CheckCircle } from "lucide-react";
 
 const UnderlineLink = ({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) => (
@@ -27,58 +26,21 @@ const Contact = () => {
   return (
     <section id="agendamento" className="py-24">
       <div className="container">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="font-display text-3xl md:text-4xl font-bold text-center mb-14"
-        >
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-14">
           Agendamento & <span className="text-primary">Contato</span>
-        </motion.h2>
+        </h2>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-8 rounded-xl bg-card border border-border"
-          >
+          <div className="p-8 rounded-xl bg-card border border-border">
             <h3 className="font-display text-xl font-bold mb-6">Agende seu Serviço</h3>
 
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-              <input
-                required
-                type="text"
-                placeholder="Nome completo"
-                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <input
-                required
-                type="tel"
-                placeholder="Telefone"
-                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <input
-                type="email"
-                placeholder="E-mail"
-                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <input
-                type="text"
-                placeholder="CEP"
-                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <textarea
-                required
-                rows={4}
-                placeholder="Descrição do problema"
-                className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-              />
-              <button
-                type="submit"
-                className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-bold hover:brightness-110 transition"
-              >
+              <input required type="text" placeholder="Nome completo" className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <input required type="tel" placeholder="Telefone" className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <input type="email" placeholder="E-mail" className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <input type="text" placeholder="CEP" className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <textarea required rows={4} placeholder="Descrição do problema" className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none" />
+              <button type="submit" className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-bold hover:brightness-110 transition">
                 Enviar Agendamento
               </button>
 
@@ -91,16 +53,9 @@ const Contact = () => {
                 </div>
               )}
             </form>
-          </motion.div>
+          </div>
 
-          {/* Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <div className="p-8 rounded-xl bg-card border border-border">
               <h3 className="font-display text-xl font-bold mb-4 flex items-center gap-2">
                 <Clock className="text-primary" size={20} /> Horários de Atendimento
@@ -133,7 +88,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
