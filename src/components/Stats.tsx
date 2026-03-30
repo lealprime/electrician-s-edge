@@ -43,7 +43,7 @@ const AnimatedNumber = ({ target, suffix, display }: { target: number; suffix: s
 };
 
 const Stats = () => (
-  <section className="relative py-16 bg-background overflow-hidden border-y border-border">
+  <section className="relative py-16 bg-background overflow-hidden border-y border-border font-thin">
     <div className="container">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((s) => (

@@ -1,7 +1,7 @@
 import bioPhoto from "@/assets/bio-photo.jpg";
 
 const Bio = () => (
-  <section className="py-24 bg-secondary">
+  <section className="py-24 bg-neutral-900">
     <div className="container">
       <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-14">
         Sobre o <span className="text-primary">Profissional</span>

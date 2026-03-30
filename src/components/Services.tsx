@@ -16,7 +16,7 @@ const Services = () => (
         Nossos <span className="text-primary">Serviços</span>
       </h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 rounded-none shadow-none opacity-100">
         {services.map((s) => (
           <div
             key={s.title}
