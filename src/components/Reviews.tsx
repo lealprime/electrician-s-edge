@@ -40,7 +40,7 @@ const Reviews = () => (
       <div className="text-center mt-8">
         <a
           href="https://g.page/r/carloseletrica/review"
-          className="inline-block text-sm text-orange-400 transition-all duration-200 hover:translate-x-[2px] hover:text-orange-300"
+          className="inline-block text-sm text-primary transition-all duration-200 hover:translate-x-[2px] hover:brightness-110"
         >
           Ver todas as avaliações no Google →
         </a>
