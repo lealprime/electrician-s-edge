@@ -10,7 +10,7 @@ const HoverLink = ({ href, children, className = "" }: { href: string; children:
 );
 
 const Footer = () => (
-  <footer className="border-t border-border bg-secondary py-16">
+  <footer className="border-t border-border py-16 bg-neutral-900">
     <div className="container">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>

@@ -38,7 +38,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="agendamento" className="py-24">
+    <section id="agendamento" className="py-24 bg-primary-foreground">
       <div className="container">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-14">
           Agendamento & <span className="text-primary">Contato</span>

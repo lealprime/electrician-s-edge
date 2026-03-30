@@ -8,7 +8,7 @@ const reasons = [
 ];
 
 const WhyChooseUs = () => (
-  <section className="py-20 bg-background">
+  <section className="py-20 bg-neutral-900">
     <div className="container text-center">
       <h2 className="font-display text-3xl md:text-4xl font-bold mb-14">
         Por que escolher <span className="text-primary">nossos serviços</span>?
@@ -16,7 +16,7 @@ const WhyChooseUs = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-5xl mx-auto">
         {reasons.map((r) => (
-          <div key={r.title} className="space-y-3 group">
+          <div key={r.title} className="space-y-3 group mx-0 my-0 px-[22px] py-[33px] mr-0 mb-0 mt-0 ml-0 pr-[22px] rounded">
             <div className="flex justify-center">
               <r.icon className="text-primary transition-transform duration-200 group-hover:scale-110" size={36} />
             </div>
